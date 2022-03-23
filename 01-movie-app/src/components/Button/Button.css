@@ -1,0 +1,3 @@
+.btn-primary {
+    @apply bg-amber-400 rounded-xl hover:bg-amber-500 text-black text-base px-4 py-2 inline-block;
+  }
