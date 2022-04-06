@@ -17,7 +17,9 @@ const HeroBanner = () => {
           is in ruins due to the efforts of the Mad Titan, Thanos. With the help
           of remaining allies, the Avengers......
         </p>
-        <Button icon={true}>Watch Trailer</Button>
+        <Button className={"btn-primary"} icon={true}>
+          Watch Trailer
+        </Button>
       </div>
     </div>
   );

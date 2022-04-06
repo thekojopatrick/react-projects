@@ -4,24 +4,23 @@ import { Tab } from "../../components";
 import { categories } from "../../constants/data";
 
 const Tabs = () => {
-  useEffect(() => {
-    console.log(categories);
-  }, []);
+  useEffect(() => {}, []);
+  //console.log(categories);
 
-  return <TabsWrapper></TabsWrapper>;
+  return (
+    <TabsWrapper>
+      {categories.map((category, id) => {
+        return <Tab key={id} category={category} />;
+      })}
+    </TabsWrapper>
+  );
 };
 
-const TabsWrapper = styled.div`
+const TabsWrapper = styled.div.attrs({
+  className: `bg-black p-2 bg-opacity-20 rounded-xl backdrop-blur-2xl place-items-stretch`,
+})`
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 8px;
-  width: 368px;
-  height: 56px;
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(80px);
-  border-radius: 12px;
-  @apply bg-red-900;
+  gap: 0.5rem;
 `;
 
 export default Tabs;
