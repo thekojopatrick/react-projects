@@ -8,6 +8,6 @@ const Layout = ({ children }) => {
       <footer></footer>
     </>
   );
-};
+}
 
 export default Layout;
