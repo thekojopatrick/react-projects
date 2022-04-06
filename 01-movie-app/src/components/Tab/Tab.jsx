@@ -1,8 +1,8 @@
-import React from "react";
+import Button from "../Button/Button";
 import "./Tab.css";
 
-const Tab = () => {
-  return <div>Tab</div>;
+const Tab = ({category}) => {
+  return <Button>All</Button>;
 };
 
 export default Tab;

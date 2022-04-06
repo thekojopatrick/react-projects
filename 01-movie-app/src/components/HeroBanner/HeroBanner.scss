@@ -1,0 +1,19 @@
+.hero-banner{
+    @apply relative my-10;
+
+    &__img{
+        @apply w-full h-auto ;
+    }
+
+    &__content{
+        @apply absolute inset-y-2/4 left-10 w-1/2 space-y-4;
+    }
+
+    &__title{
+        @apply text-6xl font-semibold;
+    }
+
+    &__desc{
+        @apply text-xl;
+    }
+}

@@ -1,7 +1,11 @@
-import React from "react";
+import { HeroBanner } from "../../components";
 
 const Header = () => {
-  return <header>Header</header>;
+  return (
+    <header>
+      <HeroBanner />
+    </header>
+  );
 };
 
 export default Header;

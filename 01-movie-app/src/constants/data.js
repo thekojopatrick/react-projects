@@ -1,3 +1,3 @@
-const tabs = ["All", "Movies", "Tv Shows"];
+const categories = ["All", "Movies", "Tv Shows"];
 
-export default  tabs ;
+export { categories };
