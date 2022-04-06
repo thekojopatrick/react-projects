@@ -1,0 +1,13 @@
+.main-nav {
+  @apply px-8 w-full h-20 flex items-center justify-between;
+  backdrop-filter: blur(40px);
+  background-color: #121829cc;
+
+  &__logo {
+    @apply w-10 h-10;
+  }
+
+  &__list {
+    @apply flex gap-4;
+  }
+}

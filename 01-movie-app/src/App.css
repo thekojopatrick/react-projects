@@ -1,1 +1,23 @@
+body {
+  background: url("/src/assets/main-background.svg") no-repeat, #111111;
+  background-size: cover;
+  color: rgba(255, 255, 255, 0.75);
+}
 
+h1,
+h5,
+h6 {
+  color: #ffffff;
+}
+
+h2,
+h3,
+h4,
+a,
+li {
+  color: #ebeef5;
+}
+
+a {
+  text-direction: none;
+}

@@ -1,9 +1,13 @@
-import React from 'react'
+import Navbar from "../Navbar/Navbar";
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
-    <div>Layout</div>
-  )
-}
+    <>
+      <Navbar />
+      <main className="container mx-auto">{children}</main>
+      <footer></footer>
+    </>
+  );
+};
 
-export default Layout
+export default Layout;
