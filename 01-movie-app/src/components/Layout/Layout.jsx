@@ -5,7 +5,6 @@ const Layout = ({ children }) => {
     <>
       <Navbar />
       <main className="container mx-auto">{children}</main>
-      <footer></footer>
     </>
   );
 }

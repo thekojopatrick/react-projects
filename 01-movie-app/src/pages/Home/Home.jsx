@@ -1,18 +1,17 @@
-import { Search } from "../../components";
-import Layout from "../../components/Layout/Layout";
-import { Header, Movies, Tabs } from "../../container";
-
+import { Search, Tabs } from "../../components";
+import { Header, MoviesContainer } from "../../container";
+import { tabs } from "../../constants/data";
 const Home = () => {
   return (
-    <Layout>
+    <>
       <Header />
       <section className="tabs-search flex justify-between items-center my-10">
-        <Tabs />
+        <Tabs categories={tabs} />
         <Search />
       </section>
-      <Movies />
-    </Layout>
-  )
-}
+      <MoviesContainer />
+    </>
+  );
+};
 
-export default Home
+export default Home;

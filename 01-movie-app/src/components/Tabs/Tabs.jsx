@@ -1,12 +1,7 @@
-import { useEffect } from "react";
 import styled from "styled-components";
-import { Tab } from "../../components";
-import { categories } from "../../constants/data";
+import { Tab } from "..";
 
-const Tabs = () => {
-  useEffect(() => {}, []);
-  //console.log(categories);
-
+const Tabs = ({ categories }) => {
   return (
     <TabsWrapper>
       {categories.map((category, id) => {

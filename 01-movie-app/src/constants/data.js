@@ -1,8 +1,14 @@
-const categories = ["All", "Movies", "Tv Shows"];
+const tabs = ["All", "Movies", "Tv Shows"];
+
+const SubCategories = [
+  { title: "Popular", route: "/popular" },
+  { title: "Upcoming", route: "/upcoming" },
+  { title: "Top rated", route: "/top_rated" },
+];
 const navlinks = [
-  { title: "Movies", route: "/movies" },
-  { title: "TV Shows", route: "/tv-shows" },
-  { title: "Bookmark", route: "/bookmark" },
+  { title: "Movies", route: "/movie/discover" },
+  { title: "TV Shows", route: "/tv/discover" },
+  { title: "Watchlist", route: "/watchlist" },
 ];
 
-export { categories,navlinks };
+export { tabs, navlinks, SubCategories };

@@ -1,8 +1,9 @@
 .hero-banner{
-    @apply relative my-10;
+    height: 70vh;
+    @apply relative my-10 border;
 
-    &__img{
-        @apply w-full h-auto ;
+    &__img{  
+        @apply w-full h-full inset-0 ;
     }
 
     &__content{
