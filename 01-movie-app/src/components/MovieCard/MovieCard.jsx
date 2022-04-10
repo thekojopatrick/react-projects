@@ -1,12 +1,13 @@
 import "./MovieCard.css";
 import { FiStar } from "react-icons/fi";
 import styled from "styled-components";
+import { IMAGE_PATH } from "../../constants/data";
 
 const MovieCard = (movie) => {
   const { img, rating, title } = movie;
   return (
     <MovieCardWrapper>
-      <img src={img} alt="" />
+      <img loading="lazy" src={`${IMAGE_PATH}w342${img}`} alt={title} />
       <div className="rating">
         <FiStar />
         {rating}
@@ -43,6 +44,7 @@ const MovieCardWrapper = styled.div`
   }
 
   p {
+    width: 60%;
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.5rem;
@@ -51,7 +53,10 @@ const MovieCardWrapper = styled.div`
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: .8rem 0px;
+    margin: 0.8rem 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 

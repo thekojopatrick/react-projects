@@ -1,3 +1,5 @@
+const IMAGE_PATH = "https://image.tmdb.org/t/p/";
+
 const tabs = ["All", "Movies", "Tv Shows"];
 
 const SubCategories = [
@@ -11,4 +13,4 @@ const navlinks = [
   { title: "Watchlist", route: "/watchlist" },
 ];
 
-export { tabs, navlinks, SubCategories };
+export { tabs, navlinks, SubCategories,IMAGE_PATH };
