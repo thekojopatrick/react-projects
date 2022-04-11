@@ -13,10 +13,9 @@ const Home = () => {
 
   useEffect(() => {
     getDiscover();
-    console.log(movies);
   }, []);
 
-  const getDiscover = () => {
+  function getDiscover() {
     const checkLocalStorage = localStorage.getItem("Discover");
 
     if (checkLocalStorage) {
@@ -28,7 +27,7 @@ const Home = () => {
       setDiscover(data);
       localStorage.setItem("Discover", JSON.stringify(data));
     }
-  };
+  }
 
   const getMovies = async () => {
     const data = await makeRequest(
@@ -45,12 +44,13 @@ const Home = () => {
     let tv = data.results;
     setTvshows(tv);
     console.log(tv);
-
     return data;
   };
 
   return (
-    <AppContext.Provider value={{ getMovies, movies, getShows, tvshows ,discover}}>
+    <AppContext.Provider
+      value={{ getMovies, movies, getShows, tvshows, discover }}
+    >
       <>
         <Header />
         <section className="tabs-search flex justify-between items-center my-10">
