@@ -10,21 +10,18 @@ function Search() {
   const [searchResults, setSearchResults] = useState([]);
   let params = useParams();
 
-  const getSearchResult = async () => {
+  const getSearchResult = async (name) => {
     const data = await makeRequest(
       `https://api.themoviedb.org/3/search/multi/`,
-      params.search
+      name
     );
     console.log(data.results);
     setSearchResults(data.results);
   };
 
   useEffect(() => {
-    getSearchResult();   
-    // navigate("/search/" + params.search);
-    console.log(params);
-  }, []);
-  
+    getSearchResult(params.search);
+  }, [params.search]);
 
   return (
     <section className="mt-10">

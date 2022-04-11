@@ -21,9 +21,9 @@ const Navbar = () => {
             </li>
           );
         })}
-        <li>
+        {/* <li>
           <Search />
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
