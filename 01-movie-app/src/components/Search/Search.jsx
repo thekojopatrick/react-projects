@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Button from "../Button/Button";
 
 function Search() {
   const [input, setInput] = useState([]);
@@ -21,6 +22,7 @@ function Search() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
+      <Button>Search</Button>
     </SearchForm>
   );
 }

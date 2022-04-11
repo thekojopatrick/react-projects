@@ -1,5 +1,5 @@
-const IMAGE_PATH = "https://image.tmdb.org/t/p/";
-
+const ImagePath = "https://image.tmdb.org/t/p/";
+const ImagePlaceholder = "https://via.placeholder.com/500x750";
 const tabs = ["All", "Movies", "Tv Shows"];
 
 const SubCategories = [
@@ -7,10 +7,10 @@ const SubCategories = [
   { title: "Upcoming", route: "/upcoming" },
   { title: "Top rated", route: "/top_rated" },
 ];
-const navlinks = [
+const Navlinks = [
   { title: "Movies", route: "/movie/discover" },
   { title: "TV Shows", route: "/tv/discover" },
   { title: "Watchlist", route: "/watchlist" },
 ];
 
-export { tabs, navlinks, SubCategories,IMAGE_PATH };
+export { tabs, Navlinks, SubCategories,ImagePath,ImagePlaceholder };

@@ -1,10 +1,10 @@
 import { logoOutline } from "../../constants/images";
 import "./Button.css";
 
-const Button = ({ icon, className, children }) => {
+const Button = ({onClick, icon, className, children }) => {
   return (
     <>
-      <button className={className}>
+      <button onClick={onClick} className={className}>
         {icon && <img src={logoOutline} alt="Logo" />}
         {children}
       </button>

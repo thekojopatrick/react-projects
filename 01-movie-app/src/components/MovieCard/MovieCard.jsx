@@ -1,13 +1,18 @@
 import "./MovieCard.css";
 import { FiStar } from "react-icons/fi";
 import styled from "styled-components";
-import { IMAGE_PATH } from "../../constants/data";
+import { ImagePath, ImagePlaceholder } from "../../constants/data";
 
 const MovieCard = (movie) => {
   const { img, rating, title } = movie;
+
   return (
     <MovieCardWrapper>
-      <img loading="lazy" src={`${IMAGE_PATH}w342${img}`} alt={title} />
+      {img ? (
+        <img loading="lazy" src={`${ImagePath}w342${img}`} alt={title} />
+      ) : (
+        <img loading="lazy" src={`${ImagePlaceholder}`} alt={title} />
+      )}
       <div className="rating">
         <FiStar />
         {rating}

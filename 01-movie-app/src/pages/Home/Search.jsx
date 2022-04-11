@@ -8,7 +8,6 @@ import makeRequest from "../../utils/FetchApi";
 
 function Search() {
   const [searchResults, setSearchResults] = useState([]);
-  const navigate = useNavigate();
   let params = useParams();
 
   const getSearchResult = async () => {
@@ -21,10 +20,11 @@ function Search() {
   };
 
   useEffect(() => {
-    getSearchResult();
-    navigate("/search/" + params.search);
+    getSearchResult();   
+    // navigate("/search/" + params.search);
     console.log(params);
   }, []);
+  
 
   return (
     <section className="mt-10">

@@ -1,4 +1,4 @@
-import { IMAGE_PATH } from "../../constants/data";
+import { ImagePath } from "../../constants/data";
 import Button from "../Button/Button";
 import "./HeroBanner.scss";
 
@@ -11,7 +11,7 @@ const HeroBanner = ({ banner }) => {
       <img
         loading="lazy"
         className="hero-banner__img"
-        src={`${IMAGE_PATH}w1280/${backdrop_path}`}
+        src={`${ImagePath}w1280/${backdrop_path}`}
         alt="Movie Banner"
       />
       <div className="hero-banner__content">

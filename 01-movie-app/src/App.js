@@ -6,7 +6,7 @@ import { Layout, Navbar } from "./components";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter >
         <Layout>
           <Pages />
         </Layout>

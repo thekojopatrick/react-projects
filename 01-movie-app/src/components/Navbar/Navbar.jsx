@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
-import { navlinks } from "../../constants/data";
+import { Navlinks } from "../../constants/data";
 import { logo } from "../../constants/images";
+import Search from "../Search/Search";
 import "./Navbar.scss";
 
 const Navbar = () => {
@@ -10,7 +11,7 @@ const Navbar = () => {
         <img className="main-nav__logo" src={logo} alt="Movie App" />
       </NavLink>
       <ul className="main-nav__list">
-        {navlinks.map((navlink, id) => {
+        {Navlinks.map((navlink, id) => {
           const { title, route } = navlink;
           return (
             <li key={id} className="main-nav__item">
@@ -20,6 +21,9 @@ const Navbar = () => {
             </li>
           );
         })}
+        <li>
+          <Search />
+        </li>
       </ul>
     </nav>
   );
