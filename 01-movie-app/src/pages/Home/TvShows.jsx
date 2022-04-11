@@ -14,6 +14,9 @@ function TvShows() {
   const getShows = async () => {
     const data = await makeRequest(`https://api.themoviedb.org/3/discover/tv`);
     let tv = data.results;
+    tv.forEach((tv) => {
+      tv["media_type"] = "tv";
+    });
     setTvshows(tv);
     console.log(tv);
   };

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Grid, MovieCard } from "../../components";
 
 const Movies = ({ movies }) => {
@@ -13,14 +14,25 @@ const Movies = ({ movies }) => {
           .map((value) => ({ value, sort: Math.random() }))
           .sort((a, b) => a.sort - b.sort)
           .map(({ value }) => {
-            const { id, original_title, poster_path, vote_average } = value;
+            const {
+              id,
+              original_title,
+              original_name,
+              poster_path,
+              vote_average,
+              media_type,
+            } = value;
+
+            let name = original_name || original_title;
             return (
-              <MovieCard
-                key={id}
-                img={poster_path}
-                title={original_title}
-                rating={vote_average}
-              />
+              <Link to={`/${media_type}/${id}-${name.replace(/\s/g, "-")}`}>
+                <MovieCard
+                  key={id}
+                  img={poster_path}
+                  title={original_title || original_name}
+                  rating={vote_average}
+                />
+              </Link>
             );
           })}
 

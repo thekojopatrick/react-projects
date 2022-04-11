@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { SHeader, Search as SearchForm, Grid } from "../../components";
 import { MoviesContainer } from "../../container";
 import makeRequest from "../../utils/FetchApi";
@@ -29,6 +29,7 @@ function Search() {
       <SearchForm />
       <Grid>
         {searchResults ? (
+          
           <MoviesContainer movies={searchResults} />
         ) : (
           "No Search Result"

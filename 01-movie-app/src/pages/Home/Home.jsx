@@ -13,6 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     getDiscover();
+    console.log([discover]);
   }, []);
 
   function getDiscover() {
@@ -34,6 +35,10 @@ const Home = () => {
       `https://api.themoviedb.org/3/discover/movie`
     );
     let movies = data.results;
+
+    movies.forEach((movie) => {
+      movie["media_type"] = "movie";
+    });
     setMovies(movies);
     console.log(movies);
     return data;
@@ -42,6 +47,9 @@ const Home = () => {
   const getShows = async () => {
     const data = await makeRequest(`https://api.themoviedb.org/3/discover/tv`);
     let tv = data.results;
+    tv.forEach((tv) => {
+      tv["media_type"] = "tv";
+    });
     setTvshows(tv);
     console.log(tv);
     return data;

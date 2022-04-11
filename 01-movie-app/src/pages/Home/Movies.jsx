@@ -16,6 +16,9 @@ function Movies() {
       `https://api.themoviedb.org/3/discover/movie`
     );
     let movies = data.results;
+    movies.forEach((movie) => {
+      movie["media_type"] = "movie";
+    });
     setMovies(movies);
     console.log(movies);
   };
