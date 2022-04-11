@@ -1,17 +1,19 @@
+import React, { useEffect, useState, createContext } from "react";
 import { Search, Tabs } from "../../components";
 import { Header, MoviesContainer } from "../../container";
 import { tabs } from "../../constants/data";
-import { useState } from "react";
 import makeRequest from "../../utils/FetchApi";
-import { useEffect } from "react";
+
+export const AppContext = createContext(null);
+
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [tvshows, setTvshows] = useState([]);
   let [discover, setDiscover] = useState([]);
 
-
   useEffect(() => {
     getDiscover();
+    console.log(movies);
   }, []);
 
   const getDiscover = () => {
@@ -35,6 +37,7 @@ const Home = () => {
     let movies = data.results;
     setMovies(movies);
     console.log(movies);
+    return data;
   };
 
   const getShows = async () => {
@@ -42,17 +45,25 @@ const Home = () => {
     let tv = data.results;
     setTvshows(tv);
     console.log(tv);
+
+    return data;
   };
 
   return (
-    <>
-      <Header />
-      <section className="tabs-search flex justify-between items-center my-10">
-        <Tabs categories={tabs} />
-        <Search />
-      </section>
-      {discover ? <MoviesContainer movies={discover} /> : "No Movies to show"}
-    </>
+    <AppContext.Provider value={{ getMovies, movies, getShows, tvshows ,discover}}>
+      <>
+        <Header />
+        <section className="tabs-search flex justify-between items-center my-10">
+          <Tabs categories={tabs} />
+          <Search />
+        </section>
+        {discover ? (
+          <MoviesContainer movies={discover} />
+        ) : (
+          "No Movies or show found"
+        )}
+      </>
+    </AppContext.Provider>
   );
 };
 

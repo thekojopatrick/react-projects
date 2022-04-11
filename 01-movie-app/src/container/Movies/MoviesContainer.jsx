@@ -5,7 +5,7 @@ const Movies = ({ movies }) => {
   return (
     <section className="space-y-8">
       <h2 className="text-2xl">
-        All <span className="text-sm">{movies.length}</span>
+        All <span className="text-sm">({movies.length})</span>
       </h2>
       <Grid>
         {/* Randomize movie list */}
