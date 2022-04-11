@@ -9,34 +9,41 @@ const Home = () => {
   const [tvshows, setTvshows] = useState([]);
   let [discover, setDiscover] = useState([]);
 
-  // let discover = [];
 
   useEffect(() => {
     getDiscover();
   }, []);
 
-  const getDiscover = async () => {
+  const getDiscover = () => {
     const checkLocalStorage = localStorage.getItem("Discover");
 
-    if (checkLocalStorage !== []) {
+    if (checkLocalStorage) {
       setDiscover(JSON.parse(checkLocalStorage));
     } else {
-      const getMovies = await makeRequest(
-        `https://api.themoviedb.org/3/discover/movie`
-      );
-      const getShows = await makeRequest(
-        `https://api.themoviedb.org/3/discover/tv`
-      );
-
-      let mov = getMovies.results;
-      let tv = getShows.results;
-      setMovies(mov);
-      setTvshows(tv);
+      getMovies();
+      getShows();
       let data = [...movies, ...tvshows];
+      setDiscover(data);
       localStorage.setItem("Discover", JSON.stringify(data));
-      console.log(data);
     }
   };
+
+  const getMovies = async () => {
+    const data = await makeRequest(
+      `https://api.themoviedb.org/3/discover/movie`
+    );
+    let movies = data.results;
+    setMovies(movies);
+    console.log(movies);
+  };
+
+  const getShows = async () => {
+    const data = await makeRequest(`https://api.themoviedb.org/3/discover/tv`);
+    let tv = data.results;
+    setTvshows(tv);
+    console.log(tv);
+  };
+
   return (
     <>
       <Header />

@@ -5,9 +5,10 @@ const Movies = ({ movies }) => {
   return (
     <section className="space-y-8">
       <h2 className="text-2xl">
-        All <span className="text-sm">(120)</span>
+        All <span className="text-sm">{movies.length}</span>
       </h2>
       <Grid>
+        {/* Randomize movie list */}
         {movies
           .map((value) => ({ value, sort: Math.random() }))
           .sort((a, b) => a.sort - b.sort)
