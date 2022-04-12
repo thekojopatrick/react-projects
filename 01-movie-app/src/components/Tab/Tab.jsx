@@ -1,8 +1,15 @@
+
 import Button from "../Button/Button";
 import "./Tab.css";
 
-const Tab = ({ category }) => {
-  return <Button className={"btn-secondary"}>{category}</Button>;
+const Tab = ({ category,onButtonClick }) => {
+
+
+  return (
+    <Button  onClick={onButtonClick} className={"btn-secondary"}>
+      {category}
+    </Button>
+  );
 };
 
 export default Tab;

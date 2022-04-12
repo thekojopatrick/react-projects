@@ -1,11 +1,31 @@
 import styled from "styled-components";
+import { useRef } from "react";
+
 import { Tab } from "..";
 
 const Tabs = ({ categories }) => {
+  const tabEl = useRef(null);
+
+  const onButtonClick = () => {
+    // `current` points to the mounted text input element
+    tabEl.current++;
+    console.log(`Clicked ${tabEl.current} times`);
+    let text = tabEl.current;
+
+    console.log(text);
+  };
+
   return (
     <TabsWrapper>
       {categories.map((category, id) => {
-        return <Tab key={id} category={category} />;
+        return (
+          <Tab
+            ref={tabEl}
+            onButtonClick={onButtonClick}
+            key={id}
+            category={category}
+          />
+        );
       })}
     </TabsWrapper>
   );
