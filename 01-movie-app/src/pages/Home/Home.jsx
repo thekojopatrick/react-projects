@@ -60,7 +60,7 @@ const Home = () => {
     >
       <>
         <Header />
-        <section className="tabs-search flex justify-between items-center my-10">
+        <section className="tabs-search flex flex-col-reverse md:flex-row md:justify-between items-center my-10">
           <Tabs categories={tabs} />
           <Search />
         </section>
