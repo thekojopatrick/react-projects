@@ -4,6 +4,7 @@ let requestOptions = {
 
 const headers = {
   "Content-Type": "application/json",
+  'Accept': 'application/json'
 };
 
 let query =""

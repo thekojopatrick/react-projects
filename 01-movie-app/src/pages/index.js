@@ -14,7 +14,7 @@ function Pages() {
       <Route path="/tv/:type" element={<TvShows />} />
       <Route path="/watchlist" element={<Watchlist />} />
       <Route path="/search/:search" element={<Search />} />
-      <Route path="/:id" element={<MovieDetails />} />
+      <Route path="/s/:route/:id" element={<MovieDetails />} />
     </Routes>
   );
 }

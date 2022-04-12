@@ -25,7 +25,10 @@ const Movies = ({ movies }) => {
 
             let name = original_name || original_title;
             return (
-              <Link to={`/${media_type}/${id}-${name.replace(/\s/g, "-")}`}>
+              <Link
+                key={id}
+                to={`/s/${media_type}/${id}-${name.replace(/\s/g, "-")}`}
+              >
                 <MovieCard
                   key={id}
                   img={poster_path}
