@@ -10,6 +10,7 @@ import styled from "styled-components";
 import Category from "./Category/Category";
 import Loading from "./Loading/Loading";
 import Spinner from "./Loading/Spinner";
+import Shimmer from "./Loading/Shimmer";
 
 const Grid = styled.div`
   display: grid;
@@ -28,6 +29,7 @@ const SHeader = styled.h2`
 export {
   Loading,
   Spinner,
+  Shimmer,
   SHeader,
   Search,
   Navbar,

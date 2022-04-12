@@ -12,6 +12,10 @@ const MovieDetails = () => {
 
   const { id, route } = useParams();
 
+  useEffect(() => {
+    fetchDetails(id, route);
+  }, [id, route]);
+
   const fetchDetails = async (id, route) => {
     const data = await makeRequest(
       `https://api.themoviedb.org/3/${route}/${id}`
@@ -25,9 +29,6 @@ const MovieDetails = () => {
     }, 3000);
   };
 
-  useEffect(() => {
-    fetchDetails(id, route);
-  }, [id, route]);
 
   const {
     backdrop_path,
@@ -72,7 +73,7 @@ const MovieDetails = () => {
               <h1 className="hero-banner__title">{name}</h1>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row gap-16">
+          <div className="flex p-4 flex-col place-items-center justify-center w-full md:flex-row gap-16">
             <img
               loading="lazy"
               className="rounded-2xl"
@@ -84,9 +85,9 @@ const MovieDetails = () => {
               alt="Poster"
             />
 
-            <div className="space-y-4">
+            <div className="space-y-4 md:w-1/2 ">
               <h2 className="text-xl font-bold">{tagline}</h2>
-              <p className="w-full md:w-1/2">{overview}</p>
+              <p className="w-full md:w-2/3">{overview}</p>
               <div className="rating inline-flex items-center p-2 rounded-xl leading-relaxed gap-1 text-amber-400 bg-black ">
                 <FiStar />
                 {vote_average}
