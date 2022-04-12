@@ -35,9 +35,9 @@ function Movies() {
       {isLoading ? (
         <Loading loading={isLoading} />
       ) : (
-        <section className="mt-10">
+        <section className="mt-10 m-4">
           <SHeader>Movies</SHeader>
-          <section className="tabs-search flex justify-between items-center my-10">
+          <section className="tabs-search flex flex-col-reverse md:flex-row md:justify-between items-center my-10">
             <Category section="movie" categories={SubCategories} />
             <Search />
           </section>

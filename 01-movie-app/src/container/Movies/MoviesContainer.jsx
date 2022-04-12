@@ -4,8 +4,8 @@ import { Grid, MovieCard } from "../../components";
 
 const Movies = ({ movies }) => {
   return (
-    <section className="space-y-8">
-      <h2 className="text-2xl">
+    <section className="space-y-8 p-4 text-center">
+      <h2 className="text-2xl text-left mx-4">
         All <span className="text-sm">({movies.length})</span>
       </h2>
       <Grid>
