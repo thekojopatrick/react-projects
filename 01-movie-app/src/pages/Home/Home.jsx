@@ -13,8 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     getDiscover();
-    console.log([discover]);
-  }, []);
+  }, [tvshows, movies]);
 
   function getDiscover() {
     const checkLocalStorage = localStorage.getItem("Discover");
@@ -40,7 +39,7 @@ const Home = () => {
       movie["media_type"] = "movie";
     });
     setMovies(movies);
-    console.log(movies);
+    //console.log(movies);
     return data;
   };
 
@@ -51,7 +50,7 @@ const Home = () => {
       tv["media_type"] = "tv";
     });
     setTvshows(tv);
-    console.log(tv);
+    //console.log(tv);
     return data;
   };
 
