@@ -8,9 +8,9 @@ const tabs = [
   { title: "Tv Shows", value: "tv" },
 ];
 const SubCategories = [
-  { title: "Popular", route: "/popular" },
-  { title: "Upcoming", route: "/upcoming" },
-  { title: "Top rated", route: "/top_rated" },
+  { title: "Popular", value: "/popular" },
+  { title: "Upcoming", value: "/upcoming" },
+  { title: "Top rated", value: "/top_rated" },
 ];
 const Navlinks = [
   { title: "Movies", route: "/movie/discover" },
