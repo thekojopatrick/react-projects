@@ -9,7 +9,9 @@ export const AppContext = createContext(null);
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [tvshows, setTvshows] = useState([]);
-  let [discover, setDiscover] = useState([]);
+  const [activeTab, setActiveTab] = useState("");
+  const [discover, setDiscover] = useState([]);
+  const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
     getDiscover();
@@ -20,11 +22,13 @@ const Home = () => {
 
     if (checkLocalStorage) {
       setDiscover(JSON.parse(checkLocalStorage));
+      setFiltered(discover);
     } else {
       getMovies();
       getShows();
       let data = [...movies, ...tvshows];
       setDiscover(data);
+      setFiltered(data);
       localStorage.setItem("Discover", JSON.stringify(data));
     }
   }
@@ -40,7 +44,6 @@ const Home = () => {
     });
     setMovies(movies);
     //console.log(movies);
-    return data;
   };
 
   const getShows = async () => {
@@ -51,12 +54,16 @@ const Home = () => {
     });
     setTvshows(tv);
     //console.log(tv);
-    return data;
   };
 
   return (
     <AppContext.Provider
-      value={{ getMovies, movies, getShows, tvshows, discover }}
+      value={{
+        discover,
+        activeTab,
+        setActiveTab,
+        setFiltered,
+      }}
     >
       <>
         <Header />
@@ -65,7 +72,7 @@ const Home = () => {
           <Search />
         </section>
         {discover ? (
-          <MoviesContainer movies={discover} />
+          <MoviesContainer movies={filtered} />
         ) : (
           "No Movies or show found"
         )}
