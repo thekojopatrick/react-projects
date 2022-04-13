@@ -11,8 +11,9 @@ import Category from "./Category/Category";
 import Loading from "./Loading/Loading";
 import Spinner from "./Loading/Spinner";
 import Shimmer from "./Loading/Shimmer";
+import { motion } from "framer-motion";
 
-const Grid = styled.div`
+const Grid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 3rem;

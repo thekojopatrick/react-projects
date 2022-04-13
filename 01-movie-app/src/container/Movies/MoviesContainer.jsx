@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Grid, MovieCard } from "../../components";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Movies = ({ movies }) => {
   return (
@@ -8,38 +9,39 @@ const Movies = ({ movies }) => {
       <h2 className="text-2xl text-left mx-4">
         All <span className="text-sm">({movies.length})</span>
       </h2>
-      <Grid>
-        {/* Randomize movie list */}
-        {movies
-          .map((value) => ({ value, sort: Math.random() }))
-          .sort((a, b) => a.sort - b.sort)
-          .map(({ value }) => {
-            const {
-              id,
-              original_title,
-              original_name,
-              poster_path,
-              vote_average,
-              media_type,
-            } = value;
+      <Grid layout>
+        <AnimatePresence>
+          {/* Randomize movie list */}
+          {movies
+            .map((value) => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => {
+              const {
+                id,
+                original_title,
+                original_name,
+                poster_path,
+                vote_average,
+                media_type,
+              } = value;
 
-            let name = original_name || original_title;
-            return (
-              <Link
-                key={id}
-                to={`/s/${media_type}/${id}-${name.replace(/\s/g, "-")}`}
-              >
-                <MovieCard
+              let name = original_name || original_title;
+              return (
+                <Link
                   key={id}
-                  img={poster_path}
-                  title={original_title || original_name}
-                  rating={vote_average}
-                />
-              </Link>
-            );
-          })}
+                  to={`/s/${media_type}/${id}-${name.replace(/\s/g, "-")}`}
+                >
+                  <MovieCard
+                    key={id}
+                    img={poster_path}
+                    title={original_title || original_name}
+                    rating={vote_average}
+                  />
+                </Link>
+              );
+            })}
 
-        {/* {movies.map((movie) => {
+          {/* {movies.map((movie) => {
           const { id, original_title, poster_path, vote_average } = movie;
           return (
             <MovieCard
@@ -50,6 +52,7 @@ const Movies = ({ movies }) => {
             />
           );
         })} */}
+        </AnimatePresence>
       </Grid>
     </section>
   );

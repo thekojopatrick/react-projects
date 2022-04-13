@@ -3,6 +3,7 @@ import { Search, Tabs } from "../../components";
 import { Header, MoviesContainer } from "../../container";
 import { tabs } from "../../constants/data";
 import makeRequest from "../../utils/FetchApi";
+import { motion } from "framer-motion";
 
 export const AppContext = createContext(null);
 

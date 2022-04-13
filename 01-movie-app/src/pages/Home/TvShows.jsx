@@ -42,7 +42,7 @@ const TvShows = () => {
             <section className="mt-10 m-4">
               <SHeader>Tv Shows</SHeader>
               <section className="tabs-search flex flex-col-reverse md:flex-row md:justify-between items-center my-10">
-                <Category section="tv" categories={SubCategories} />
+                {/* <Category section="tv" categories={SubCategories} /> */}
                 <Search />
               </section>
               {tvshows ? (

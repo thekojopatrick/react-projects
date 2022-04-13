@@ -2,12 +2,19 @@ import "./MovieCard.css";
 import { FiStar } from "react-icons/fi";
 import styled from "styled-components";
 import { ImagePath, ImagePlaceholder } from "../../constants/data";
+import { motion } from "framer-motion";
+
 
 const MovieCard = (movie) => {
   const { img, rating, title } = movie;
 
   return (
-    <MovieCardWrapper>
+    <MovieCardWrapper
+      layout
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+    >
       {img ? (
         <img loading="lazy" src={`${ImagePath}w342${img}`} alt={title} />
       ) : (
@@ -22,7 +29,7 @@ const MovieCard = (movie) => {
   );
 };
 
-const MovieCardWrapper = styled.div`
+const MovieCardWrapper = styled(motion.div)`
   position: relative;
   display: inline-flex;
   flex-direction: column;
