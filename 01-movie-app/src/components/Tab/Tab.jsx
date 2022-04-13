@@ -23,7 +23,12 @@ const Tab = ({ category }) => {
   };
 
   return (
-    <Button onClick={onButtonClick} className={"btn-secondary"}>
+    <Button
+      onClick={onButtonClick}
+      className={
+        activeTab === category.value ? "btn-secondary active" : "btn-secondary"
+      }
+    >
       {category.title}
     </Button>
   );

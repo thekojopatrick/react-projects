@@ -15,6 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     getDiscover();
+    setActiveTab('All')
   }, [tvshows, movies]);
 
   function getDiscover() {

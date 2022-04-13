@@ -31,6 +31,7 @@ const MovieCardWrapper = styled.div`
   background: rgba(32, 40, 62, 0.8);
   backdrop-filter: blur(80px);
   border-radius: 12px;
+  text-align: left;
 
   .rating {
     position: absolute;
