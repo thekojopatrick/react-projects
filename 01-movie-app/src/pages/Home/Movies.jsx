@@ -38,7 +38,7 @@ function Movies() {
         <section className="mt-10 m-4">
           <SHeader>Movies</SHeader>
           <section className="tabs-search flex flex-col-reverse md:flex-row md:justify-between items-center my-10">
-            <Category section="movie" categories={SubCategories} />
+            {/* <Category section="movie" categories={SubCategories} /> */}
             <Search />
           </section>
           {movies ? <MoviesContainer movies={movies} /> : "No Movies Found"}

@@ -9,7 +9,7 @@ function Category({ categories, section }) {
         const { id, title, route } = category;
         return (
           <NavLink key={id} to={`/${section}${route}`}>
-            <Tab category={title} />
+            <Tab category={category} />
           </NavLink>
         );
       })}

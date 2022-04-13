@@ -1,11 +1,34 @@
+import { useContext, useEffect } from "react";
+import { AppContext } from "../../pages/Home/Home";
 import styled from "styled-components";
 import { Tab } from "..";
 
 const Tabs = ({ categories }) => {
+  const { activeTab, setActiveTab, setFiltered, discover } =
+    useContext(AppContext);
+
+  useEffect(() => {
+    if (activeTab === "All") {
+      setFiltered(discover);
+      return;
+    }
+    const filtered = discover.filter((movie) =>
+      movie.media_type.includes(activeTab)
+    );
+    setFiltered(filtered);
+  }, [activeTab]);
+
   return (
     <TabsWrapper>
       {categories.map((category, id) => {
-        return <Tab key={id} category={category} />;
+        return (
+          <Tab
+            key={id}
+            setActiveTab={setActiveTab}
+            category={category}
+            activeTab={activeTab}
+          />
+        );
       })}
     </TabsWrapper>
   );
