@@ -1,10 +1,12 @@
 import { Category, Loading, Search, SHeader } from "../../components";
 import { SubCategories } from "../../constants/data";
 import { MoviesContainer } from "../../container";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import makeRequest from "../../utils/FetchApi";
 
-function TvShows() {
+export const TvShowContext = createContext(null);
+
+const TvShows = () => {
   const [tvshows, setTvshows] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,7 +27,7 @@ function TvShows() {
         tv["media_type"] = "tv";
       });
       setTvshows(tv);
-      console.log(tv);
+      //console.log(tv);
       setIsLoading(false);
     }, 3000);
   };
@@ -35,17 +37,25 @@ function TvShows() {
       {isLoading ? (
         <Loading />
       ) : (
-        <section className="mt-10 m-4">
-          <SHeader>Tv Shows</SHeader>
-          <section className="tabs-search flex flex-col-reverse md:flex-row md:justify-between items-center my-10">
-            <Category section="tv" categories={SubCategories} />
-            <Search />
-          </section>
-          {tvshows ? <MoviesContainer movies={tvshows} /> : "No Tv Shows Found"}
-        </section>
+        <TvShowContext.Provider value={{ setTvshows }}>
+          <>
+            <section className="mt-10 m-4">
+              <SHeader>Tv Shows</SHeader>
+              <section className="tabs-search flex flex-col-reverse md:flex-row md:justify-between items-center my-10">
+                <Category section="tv" categories={SubCategories} />
+                <Search />
+              </section>
+              {tvshows ? (
+                <MoviesContainer movies={tvshows} />
+              ) : (
+                "No Tv Shows Found"
+              )}
+            </section>
+          </>
+        </TvShowContext.Provider>
       )}
     </>
   );
-}
+};
 
 export default TvShows;

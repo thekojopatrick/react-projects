@@ -1,18 +1,21 @@
 import { NavLink, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Tab } from "..";
-import MovieContext from "../../pages";
 import { useContext, useState, useEffect } from "react";
 import makeRequest from "../../utils/FetchApi";
+import { MoviesContext } from "../../pages/Home/Movies";
+import { TvShowContext } from "../../pages/Home/TvShows";
 
 function Category({ categories, section }) {
   const [activeTab, setActiveTab] = useState("");
-  const { setMovies } = useContext(MovieContext);
+  const { setMovies } = useContext(MoviesContext);
+  const { setTvShows } = useContext(TvShowContext);
+
   let params = useParams();
 
   useEffect(() => {
     fetchData(section, params.type);
-  }, [params.type]);
+  }, [section, params.type]);
 
   const fetchData = async (section, route) => {
     const data = await makeRequest(
@@ -21,8 +24,14 @@ function Category({ categories, section }) {
       console.log(err);
     });
 
-    setMovies(data.results)
-    console.log(data);
+    console.log(data.results);
+    // if (section === "movie") {
+    //   setMovies(data.results);
+    //   return
+    // } else {
+    //   setTvShows(data.results);
+    //   return;
+    // }
   };
 
   return (

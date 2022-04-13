@@ -1,13 +1,13 @@
-import React,{ createContext } from "react";
+import React, { createContext } from "react";
 import { useEffect, useState } from "react";
 import { Category, Search, SHeader, Loading } from "../../components";
 import { SubCategories } from "../../constants/data";
 import { MoviesContainer } from "../../container";
 import makeRequest from "../../utils/FetchApi";
 
-const MovieContext = createContext();
+export const MoviesContext = createContext(null);
 
-function Movies() {
+const Movies=()=> {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -34,20 +34,24 @@ function Movies() {
   };
 
   return (
-    <MovieContext.Provider value={{setMovies}}>
+    <>
       {isLoading ? (
         <Loading loading={isLoading} />
       ) : (
-        <section className="mt-10 m-4">
-          <SHeader>Movies</SHeader>
-          <section className="tabs-search flex flex-col-reverse md:flex-row md:justify-between items-center my-10">
-            <Category section="movie" categories={SubCategories} />
-            <Search />
-          </section>
-          {movies ? <MoviesContainer movies={movies} /> : "No Movies Found"}
-        </section>
+        <MoviesContext.Provider value={{ setMovies }}>
+          <>
+            <section className="mt-10 m-4">
+              <SHeader>Movies</SHeader>
+              <section className="tabs-search flex flex-col-reverse md:flex-row md:justify-between items-center my-10">
+                {/* <Category section="movie" categories={SubCategories} /> */}
+                <Search />
+              </section>
+              {movies ? <MoviesContainer movies={movies} /> : "No Movies Found"}
+            </section>
+          </>
+        </MoviesContext.Provider>
       )}
-    </MovieContext.Provider>
+    </>
   );
 }
 
