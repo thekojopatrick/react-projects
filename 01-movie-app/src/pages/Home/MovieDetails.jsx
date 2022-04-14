@@ -8,7 +8,7 @@ import { ImagePath, ImagePlaceholder } from "../../constants/data";
 import { getMovieDetails } from "../../utils/FetchApi";
 
 const MovieDetails = () => {
-  const { isLoading, setIsLoading, isError, setError } = useContext(AppContext);
+  const { isLoading, setIsLoading } = useContext(AppContext);
   const [movieDetails, setMovieDetails] = useState([]);
 
   const { id, route } = useParams();
@@ -42,7 +42,11 @@ const MovieDetails = () => {
   } = movieDetails;
 
   const name = title || original_name || original_title;
-  const img = `${ImagePath}w1280${backdrop_path}` || ImagePlaceholder;
+  const img =
+    backdrop_path === null
+      ? ImagePlaceholder
+      : `${ImagePath}w1280${backdrop_path}`;
+
   return (
     <>
       {isLoading ? (

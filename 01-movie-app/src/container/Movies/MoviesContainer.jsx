@@ -25,11 +25,12 @@ const Movies = ({ movies }) => {
                 media_type,
               } = value;
 
-              let name = original_name || original_title;
+              const name = original_name || original_title;
+              const replaceEmtStr = (name) => name.replace(/\s/g, "-");
               return (
                 <Link
                   key={id}
-                  to={`/s/${media_type}/${id}`}
+                  to={`/s/${media_type}/${id}-${replaceEmtStr(name)}`}
                 >
                   <MovieCard
                     key={id}

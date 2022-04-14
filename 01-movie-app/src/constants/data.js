@@ -1,6 +1,5 @@
 const ImagePath = "https://image.tmdb.org/t/p/";
 const ImagePlaceholder = "https://via.placeholder.com/500x750";
-// const tabs = ["All", "Movies", "Tv Shows"];
 
 const tabs = [
   { title: "All", value: "All" },
