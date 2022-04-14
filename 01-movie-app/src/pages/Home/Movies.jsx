@@ -7,7 +7,8 @@ import { MoviesContainer } from "../../container";
 import { getMovies } from "../../utils/FetchApi";
 
 const Movies = () => {
-  const { movies,filter, setMovies, isLoading, setIsLoading } = useContext(AppContext);
+  const { movies, filter, setMovies, isLoading, setIsLoading } =
+    useContext(AppContext);
 
   useEffect(() => {
     fetchMovies();
@@ -35,7 +36,11 @@ const Movies = () => {
             <Category section="movie" categories={SubCategories} />
             <Search />
           </section>
-          {movies ? <MoviesContainer movies={movies} /> : "No Movies Found"}
+          {movies ? (
+            <MoviesContainer movies={movies} filter={filter} />
+          ) : (
+            "No Movies Found"
+          )}
         </section>
       )}
     </>

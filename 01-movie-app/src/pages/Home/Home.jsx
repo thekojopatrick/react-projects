@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { Search, Tabs } from "../../components";
 import { Header, MoviesContainer } from "../../container";
 import { tabs } from "../../constants/data";
-import {getMovies,getShows} from "../../utils/FetchApi";
+import { getMovies, getShows } from "../../utils/FetchApi";
 import { AppContext } from "../../App";
 
 const Home = () => {
@@ -13,12 +13,15 @@ const Home = () => {
     filtered,
     setActiveTab,
     setFiltered,
+    filter,
+    setFilter,
     setDiscover,
   } = useContext(AppContext);
 
   useEffect(() => {
     getDiscover();
     setActiveTab("All");
+    setFilter("All");
   }, [tvshows, movies]);
 
   async function getDiscover() {
@@ -37,8 +40,6 @@ const Home = () => {
     }
   }
 
-
-
   return (
     <>
       <Header />
@@ -47,7 +48,7 @@ const Home = () => {
         <Search />
       </section>
       {discover ? (
-        <MoviesContainer movies={filtered} />
+        <MoviesContainer movies={filtered} filter={filter} />
       ) : (
         "No Movies or show found"
       )}

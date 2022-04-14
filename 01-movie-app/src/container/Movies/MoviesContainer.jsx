@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { Grid, MovieCard } from "../../components";
 import { AnimatePresence } from "framer-motion";
 
-const Movies = ({ movies }) => {
+const Movies = ({ movies, filter }) => {
   return (
     <section className="space-y-8 p-4 text-center">
       <h2 className="text-2xl text-left mx-4">
-        All <span className="text-sm">({movies.length})</span>
+        {filter} <span className="text-sm">({movies.length})</span>
       </h2>
       <Grid layout>
         <AnimatePresence>

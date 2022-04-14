@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
-import { useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { FiStar, FiArrowLeft } from "react-icons/fi";
 import { useParams, Link } from "react-router-dom";
 import { AppContext } from "../../App";

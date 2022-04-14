@@ -1,4 +1,5 @@
-import { NavLink, useParams, useNavigate } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { NavLink, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Tab } from "..";
 import { useContext, useEffect } from "react";

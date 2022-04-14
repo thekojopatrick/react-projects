@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { Tab } from "..";
 import { AppContext } from "../../App";
 
 const Tabs = ({ categories }) => {
-  const { activeTab, setActiveTab, setFiltered, discover } =
+  const { activeTab, setActiveTab, setFiltered, discover, setFilter } =
     useContext(AppContext);
 
   useEffect(() => {
@@ -27,6 +28,7 @@ const Tabs = ({ categories }) => {
             setActiveTab={setActiveTab}
             category={category}
             activeTab={activeTab}
+            setFilter={setFilter}
           />
         );
       })}

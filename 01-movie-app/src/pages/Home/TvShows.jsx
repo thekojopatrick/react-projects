@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useContext } from "react";
 import { Category, Loading, Search, SHeader } from "../../components";
 import { SubCategories } from "../../constants/data";
 import { MoviesContainer } from "../../container";
-import { useEffect, useContext } from "react";
 import { getShows } from "../../utils/FetchApi";
 import { AppContext } from "../../App";
 
@@ -34,7 +34,7 @@ const TvShows = () => {
             <Category section="tv" categories={SubCategories} />
             <Search />
           </section>
-          {tvshows ? <MoviesContainer movies={tvshows} /> : "No Tv Shows Found"}
+          {tvshows ? <MoviesContainer movies={tvshows} filter={filter} /> : "No Tv Shows Found"}
         </section>
       )}
     </>
