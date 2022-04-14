@@ -8,17 +8,13 @@ const headers = {
   Accept: "application/json",
 };
 
-const url = (path) => `https://api.themoviedb.org/3/${path}`;
-const params = {
-  api_key: process.env.REACT_APP_API_KEY,
-};
-
-const makeRequest = async (path, query="") => {
+const makeRequest = async (path, query='') => {
   const res = await fetch(
-    `https://api.themoviedb.org/3${path}?api_key=${process.env.REACT_APP_API_KEY}`+
-    `&query=${query}`,
+    `https://api.themoviedb.org/3${path}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US` +
+      query,
     requestOptions,
-    headers
+    headers,
+    query
   );
   const data = res.json();
   return data;
@@ -51,7 +47,7 @@ const getShows = async () => {
 };
 
 const getSearchResult = async (name) => {
-  const data = await makeRequest(`/search/multi`, name);
+  const data = await makeRequest(`/search/multi`, `&query=${name}`);
   results = data.results;
   //console.log(results);
   return results;
