@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Grid, MovieCard } from "../../components";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 const Movies = ({ movies }) => {
   return (
@@ -29,7 +29,7 @@ const Movies = ({ movies }) => {
               return (
                 <Link
                   key={id}
-                  to={`/s/${media_type}/${id}-${name.replace(/\s/g, "-")}`}
+                  to={`/s/${media_type}/${id}`}
                 >
                   <MovieCard
                     key={id}

@@ -8,15 +8,15 @@ const headers = {
   Accept: "application/json",
 };
 
-let query = "";
+const url = (path) => `https://api.themoviedb.org/3/${path}`;
 const params = {
   api_key: process.env.REACT_APP_API_KEY,
-  query: query,
 };
 
-const makeRequest = async (url, query) => {
+const makeRequest = async (path, query="") => {
   const res = await fetch(
-    (url += "?" + new URLSearchParams(params).toString() + query),
+    `https://api.themoviedb.org/3${path}?api_key=${process.env.REACT_APP_API_KEY}`+
+    `&query=${query}`,
     requestOptions,
     headers
   );
@@ -25,15 +25,13 @@ const makeRequest = async (url, query) => {
 };
 
 const getTrending = async () => {
-  const data = await makeRequest(
-    `https://api.themoviedb.org/3/trending/all/week`
-  );
+  const data = await makeRequest(`/trending/all/week`);
   results = data.results;
   return results;
 };
 
 const getMovies = async () => {
-  const data = await makeRequest(`https://api.themoviedb.org/3/discover/movie`);
+  const data = await makeRequest(`/discover/movie`);
   results = data.results;
   results.forEach((movie) => {
     movie["media_type"] = "movie";
@@ -43,7 +41,7 @@ const getMovies = async () => {
 };
 
 const getShows = async () => {
-  const data = await makeRequest(`https://api.themoviedb.org/3/discover/tv`);
+  const data = await makeRequest(`/discover/tv`);
   results = data.results;
   results.forEach((tv) => {
     tv["media_type"] = "tv";
@@ -53,20 +51,15 @@ const getShows = async () => {
 };
 
 const getSearchResult = async (name) => {
-  const data = await makeRequest(
-    `https://api.themoviedb.org/3/search/multi/`,
-    name
-  );
+  const data = await makeRequest(`/search/multi`, name);
   results = data.results;
   //console.log(results);
   return results;
 };
 
 const getMovieDetails = async (id, route) => {
-  const data = await makeRequest(`https://api.themoviedb.org/3/${route}/${id}`);
-  results = data.results;
-  //console.log(results);
-  return results;
+  const data = await makeRequest(`/${route}/${id}`);
+  return data;
 };
 
 export {

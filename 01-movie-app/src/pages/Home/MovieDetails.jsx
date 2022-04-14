@@ -14,14 +14,13 @@ const MovieDetails = () => {
   const { id, route } = useParams();
 
   useEffect(() => {
-    fetchDetails(id, route);
+    fetchDetails();
   }, [id, route]);
 
-  const fetchDetails = async (id, route) => {
-    const data = await getMovieDetails(id, route).catch((err) => {
-      setError("Please check your internet connection and Reload Page");
-      console.log(`KP-Error:${err}`);
-    });
+  const fetchDetails = async () => {
+    setIsLoading(true);
+    const data = await getMovieDetails(id, route);
+    //console.log(data);
     setTimeout(() => {
       setMovieDetails(data);
       setIsLoading(false);
@@ -43,12 +42,9 @@ const MovieDetails = () => {
   } = movieDetails;
 
   const name = title || original_name || original_title;
-
+  const img = `${ImagePath}w1280${backdrop_path}` || ImagePlaceholder;
   return (
     <>
-      {isError && (
-        <div className="text-center w-full h-full text-white">{isError}</div>
-      )}
       {isLoading ? (
         <Spinner />
       ) : (
@@ -57,7 +53,7 @@ const MovieDetails = () => {
             <img
               loading="lazy"
               className="hero-banner__img"
-              src={`${ImagePath}w1280${backdrop_path}`}
+              src={img}
               alt="Movie Banner"
             />
             <div

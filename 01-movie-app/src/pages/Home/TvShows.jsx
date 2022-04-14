@@ -14,6 +14,7 @@ const TvShows = () => {
   }, []);
 
   const getTvshows = async () => {
+    setIsLoading(true)
     const data = await getShows();
     setTimeout(() => {
       setTvshows(data);
