@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { FiStar, FiArrowLeft } from "react-icons/fi";

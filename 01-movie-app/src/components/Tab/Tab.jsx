@@ -1,11 +1,9 @@
-import { useContext, useEffect } from "react";
-
 import Button from "../Button/Button";
 import "./Tab.css";
 
-const Tab = ({ category, activeTab,setActiveTab }) => {
-
+const Tab = ({ category, activeTab, setActiveTab, setFilter }) => {
   const onButtonClick = () => {
+    setFilter(category.title);
     setActiveTab(category.value);
   };
 

@@ -1,14 +1,13 @@
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Tab } from "..";
 import { useContext, useEffect } from "react";
-import {makeRequest} from "../../utils/FetchApi";
+import { makeRequest } from "../../utils/FetchApi";
 import { AppContext } from "../../App";
 
 function Category({ categories, section }) {
-  const { activeTab, setActiveTab, setMovies, setTvShows } =
+  const { activeTab, setActiveTab, setMovies, setTvShows, setFilter } =
     useContext(AppContext);
-
   let params = useParams();
 
   useEffect(() => {
@@ -16,31 +15,28 @@ function Category({ categories, section }) {
   }, [section, params.type]);
 
   const fetchData = async (section, route) => {
-    const data = await makeRequest(
-      `https://api.themoviedb.org/3/${section}/${route}`
-    ).catch((err) => {
-      console.log(err);
-    });
-
-    console.log(data.results);
-    // if (section === "movie") {
-    //   setMovies(data.results);
-    //   return
-    // } else {
-    //   setTvShows(data.results);
-    //   return;
-    // }
+    const data = await makeRequest(`/${section}/${route}`);
+    if (section === "movie") {
+      await setMovies(data.results);
+      return;
+    } else {
+      await setTvShows(data.results);
+      return;
+    }
   };
 
   return (
     <Wrapper>
       {categories.map((category) => {
         const { id, value } = category;
+
         return (
           <NavLink key={id} to={`/${section}${value}`}>
             <Tab
+              key={id}
               category={category}
               activeTab={activeTab}
+              setFilter={setFilter}
               setActiveTab={setActiveTab}
             />
           </NavLink>

@@ -13,6 +13,7 @@ function App() {
   const [filtered, setFiltered] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setError] = useState("");
+  const [filter, setFilter] = useState("");
 
   return (
     <AppContext.Provider
@@ -21,8 +22,10 @@ function App() {
         setMovies,
         tvshows,
         isLoading,
-        setIsLoading,
         isError,
+        filter,
+        setFilter,
+        setIsLoading,
         setError,
         setTvshows,
         discover,

@@ -8,7 +8,7 @@ const tabs = [
 ];
 const SubCategories = [
   { title: "Popular", value: "/popular" },
-  { title: "Upcoming", value: "/upcoming" },
+  // { title: "Upcoming", value: "/upcoming" },
   { title: "Top rated", value: "/top_rated" },
 ];
 const Navlinks = [
