@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
-import { AppContext } from "../../pages/Home/Home";
 import styled from "styled-components";
 import { Tab } from "..";
+import { AppContext } from "../../App";
 
 const Tabs = ({ categories }) => {
   const { activeTab, setActiveTab, setFiltered, discover } =

@@ -4,23 +4,19 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { SHeader, Search as SearchForm, Grid } from "../../components";
 import { MoviesContainer } from "../../container";
-import makeRequest from "../../utils/FetchApi";
+import { getSearchResult } from "../../utils/FetchApi";
 
 function Search() {
   const [searchResults, setSearchResults] = useState([]);
   let params = useParams();
 
-  const getSearchResult = async (name) => {
-    const data = await makeRequest(
-      `https://api.themoviedb.org/3/search/multi/`,
-      name
-    );
-    console.log(data.results);
-    setSearchResults(data.results);
+  const fetchSearchResult = async (name) => {
+    const data = await getSearchResult(name);
+    setSearchResults(data);
   };
 
   useEffect(() => {
-    getSearchResult(params.search);
+    fetchSearchResult(params.search);
   }, [params.search]);
 
   return (
@@ -29,7 +25,6 @@ function Search() {
       <SearchForm />
       <Grid>
         {searchResults ? (
-          
           <MoviesContainer movies={searchResults} />
         ) : (
           "No Search Result"

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 import { FiStar, FiArrowLeft } from "react-icons/fi";
 import { useParams, Link } from "react-router-dom";
+import { AppContext } from "../../App";
 import { Spinner } from "../../components";
 import { ImagePath, ImagePlaceholder } from "../../constants/data";
-import makeRequest from "../../utils/FetchApi";
+import { getMovieDetails } from "../../utils/FetchApi";
 
 const MovieDetails = () => {
+  const { isLoading, setIsLoading, isError, setError } = useContext(AppContext);
   const [movieDetails, setMovieDetails] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setError] = useState("");
 
   const { id, route } = useParams();
 
@@ -17,9 +18,7 @@ const MovieDetails = () => {
   }, [id, route]);
 
   const fetchDetails = async (id, route) => {
-    const data = await makeRequest(
-      `https://api.themoviedb.org/3/${route}/${id}`
-    ).catch((err) => {
+    const data = await getMovieDetails(id, route).catch((err) => {
       setError("Please check your internet connection and Reload Page");
       console.log(`KP-Error:${err}`);
     });
@@ -28,7 +27,6 @@ const MovieDetails = () => {
       setIsLoading(false);
     }, 3000);
   };
-
 
   const {
     backdrop_path,
@@ -62,7 +60,10 @@ const MovieDetails = () => {
               src={`${ImagePath}w1280${backdrop_path}`}
               alt="Movie Banner"
             />
-            <div style={{background: '#20283ecc'}} className="transform -translate-y-24 md:translate-x-20 mb-40 backdrop-blur-xl rounded-2xl p-10 inline-block">
+            <div
+              style={{ background: "#20283ecc" }}
+              className="transform -translate-y-24 md:translate-x-20 mb-40 backdrop-blur-xl rounded-2xl p-10 inline-block"
+            >
               <span className="route flex items-center tracking-wide text-amber-400 capitalize">
                 <Link to={"/"} className="flex items-center">
                   <FiArrowLeft />

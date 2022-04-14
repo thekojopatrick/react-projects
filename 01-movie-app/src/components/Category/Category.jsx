@@ -1,15 +1,13 @@
 import { NavLink, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Tab } from "..";
-import { useContext, useState, useEffect } from "react";
-import makeRequest from "../../utils/FetchApi";
-import { MoviesContext } from "../../pages/Home/Movies";
-import { TvShowContext } from "../../pages/Home/TvShows";
+import { useContext, useEffect } from "react";
+import {makeRequest} from "../../utils/FetchApi";
+import { AppContext } from "../../App";
 
 function Category({ categories, section }) {
-  const [activeTab, setActiveTab] = useState("");
-  const { setMovies } = useContext(MoviesContext);
-  const { setTvShows } = useContext(TvShowContext);
+  const { activeTab, setActiveTab, setMovies, setTvShows } =
+    useContext(AppContext);
 
   let params = useParams();
 
