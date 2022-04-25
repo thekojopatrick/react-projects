@@ -40,7 +40,7 @@ const Header = () => {
           </Button>
         </div>
       </div>
-      <div className="col grid grid-cols-8 grid-rows-6  place-items-center">
+      <div className="col hero-illustration">
         <div className="ad-product">
           <img src={Oranges} className="ad-product-img" alt="oranges" />
           <p className="ad-product-name">Fresh Orange</p>

@@ -3,7 +3,7 @@ import Pages from "./pages/pages";
 
 function App() {
   return (
-    <div className="container mx-auto p-4">
+    <div className="">
       <Pages />
     </div>
   );
