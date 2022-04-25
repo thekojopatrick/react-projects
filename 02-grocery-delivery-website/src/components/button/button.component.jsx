@@ -46,6 +46,12 @@ const ButtonBox = styled.button`
     }
   }
 
+  &.btn-outline {
+    border: 1.5px solid #eedcdc;
+    box-sizing: border-box;
+    border-radius: 12px;
+  }
+
   svg {
     display: grid;
     place-content: center;

@@ -24,7 +24,7 @@ const Header = () => {
           Grocen atssures fresh grocery every morning to your family without
           getting out in this pandemic.
         </p>
-        <div className="cta">
+        <div className="btn-group">
           <Button type={"btn-primary"}>Order Now</Button>
           <Button>
             <svg

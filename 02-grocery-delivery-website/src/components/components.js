@@ -5,5 +5,15 @@ import Header from "./header/header.component";
 import { Button } from "./button/button.component";
 import WhyChooseUs from "./why-choose-us/why-choose-us.component";
 import Features from "./features/features.component";
+import CTA from "./cta/cta.component";
 
-export { Navbar, SearchField, Header, Button, OurServices, WhyChooseUs,Features };
+export {
+  Navbar,
+  SearchField,
+  Header,
+  Button,
+  OurServices,
+  WhyChooseUs,
+  Features,
+  CTA,
+};

@@ -1,0 +1,36 @@
+.cta {
+  background: #fef5f5;
+  @apply py-24;
+
+  &-content {
+    @apply container mx-auto p-4 text-center md:text-left flex gap-4 flex-col md:flex-row items-center justify-center;
+
+    .col {
+      @apply grid items-center justify-center;
+    }
+  }
+
+  h3 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #f54748;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 54px;
+    text-transform: capitalize;
+    color: #2e2e2e;
+    @apply w-11/12  mb-6;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    color: #676767;
+  }
+}

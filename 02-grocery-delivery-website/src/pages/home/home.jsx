@@ -5,17 +5,19 @@ import {
   OurServices,
   WhyChooseUs,
   Features,
+  CTA,
 } from "../../components/components";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <Header />
       <OurServices />
       <WhyChooseUs />
       <Features />
-    </div>
+      <CTA />
+    </>
   );
 };
 
