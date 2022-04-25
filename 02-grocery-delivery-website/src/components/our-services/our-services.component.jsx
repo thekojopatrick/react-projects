@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { CheckoutIcon, DeliveryIcon, MoneyIcon } from "../../constants/images";
 import "./our-services.styles.scss";
 
@@ -14,7 +13,7 @@ const OurServices = () => {
             <h4>Free shipping</h4>
             <p>Enjoy Order in a hand using the freshness of groceries</p>
           </div>
-          <div className="service">
+          <div className="service service-active">
             <img src={MoneyIcon} alt="refunds" />
             <h4>15 days returns</h4>
             <p>Order in a handy way using the freshness of the groceries.</p>
