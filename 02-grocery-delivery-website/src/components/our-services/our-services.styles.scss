@@ -1,6 +1,6 @@
 .our-services {
   background: #fef5f5;
-  @apply py-24 block;
+  @apply py-24;
 
   &-content {
     @apply container mx-auto p-4 text-center flex gap-4 flex-col items-center justify-center;

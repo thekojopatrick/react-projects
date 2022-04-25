@@ -1,5 +1,6 @@
 import React from 'react'
-import { Navbar,Header, OurServices } from '../../components/components'
+import { Navbar,Header, OurServices,WhyChooseUs } from '../../components/components'
+
 
 const Home = () => {
   return (
@@ -7,6 +8,7 @@ const Home = () => {
         <Navbar/>
         <Header/>
         <OurServices/>
+        <WhyChooseUs/>
     </div>
   )
 }

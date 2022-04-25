@@ -1,0 +1,26 @@
+import { Person2 } from "../../constants/images";
+import { Button } from "../components";
+import "./why-choose-us.styles.scss";
+
+const WhyChooseUs = () => {
+  return (
+    <section className="why-choose-us">
+      <div className="col">
+        <img src={Person2} alt="person 2" />
+      </div>
+      <div className="col">
+        <div className="col-content">
+          <h3>WHY CHOOSE US</h3>
+          <h2>Find Favorites and Discover New Ones</h2>
+          <p>
+            At vero eos et accusamus et iusto odio dignissimos ducimus
+            blanditiis praesen voluptatum deleniti.
+          </p>
+          <Button type={"btn-primary"}>Explore Now</Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default WhyChooseUs;
