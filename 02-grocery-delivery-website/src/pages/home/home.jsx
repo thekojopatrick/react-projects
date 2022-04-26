@@ -1,24 +1,18 @@
 import React from "react";
-import {
-  Navbar,
-  Header,
-  OurServices,
-  WhyChooseUs,
-  Features,
-  CTA,
-} from "../../components/components";
+import { Navbar, Header, OurServices, WhyChooseUs, Features, Cta as CTA, Footer } from "../../components/components";
 
 const Home = () => {
-  return (
-    <>
-      <Navbar />
-      <Header />
-      <OurServices />
-      <WhyChooseUs />
-      <Features />
-      <CTA />
-    </>
-  );
+	return (
+		<>
+			<Navbar />
+			<Header />
+			<OurServices />
+			<WhyChooseUs />
+			<Features />
+			<CTA />
+			<Footer />
+		</>
+	);
 };
 
 export default Home;

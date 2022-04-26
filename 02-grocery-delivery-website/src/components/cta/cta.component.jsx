@@ -6,7 +6,7 @@ import {
 } from "../../constants/images";
 import { Button } from "../components";
 
-const CTA = () => {
+export const Cta = () => {
   return (
 		<section className="cta">
 			<div className="cta-content">
@@ -35,4 +35,4 @@ const CTA = () => {
 	);
 };
 
-export default CTA;
+

@@ -5,7 +5,8 @@ import Header from "./header/header.component";
 import { Button } from "./button/button.component";
 import WhyChooseUs from "./why-choose-us/why-choose-us.component";
 import Features from "./features/features.component";
-import CTA from "./cta/cta.component";
+import {Cta} from "./cta/cta.component";
+import Footer from "./footer/footer.component";
 
 export {
   Navbar,
@@ -15,5 +16,6 @@ export {
   OurServices,
   WhyChooseUs,
   Features,
-  CTA,
+  Cta,
+  Footer
 };
