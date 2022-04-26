@@ -3,7 +3,7 @@ import { BasketIcon, SearchIcon } from "../../constants/images";
 
 const SearchField = () => {
   return (
-    <SearchBox className="search-box">
+    <SearchBox className="search-box hidden md:inline-flex">
       <img src={SearchIcon} alt="search" className="search-icon" />
       <input type="text" placeholder="Search " />
       <img src={BasketIcon} alt="Basket" className="basket-icon" />
@@ -12,7 +12,7 @@ const SearchField = () => {
 };
 
 const SearchBox = styled.div`
-  display: inline-flex;
+  ${'' /* display: inline-flex; */}
   gap:1rem;
   align-items: center;
   padding: 1rem 0.5rem;
