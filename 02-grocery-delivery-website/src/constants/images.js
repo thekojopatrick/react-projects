@@ -2,6 +2,7 @@ import Logo from "../assets/grove-logo.svg";
 import SearchIcon from "../assets/search-icon.svg";
 import BasketIcon from "../assets/cart-icon.svg";
 import StrawberrySmallIcon from "../assets/strawberry-small.png";
+import Strawberry from "../assets/strawberry.png";
 import Oranges from "../assets/oranges.png";
 import AddCartIcon from "../assets/add-cart.svg";
 import AlarmClockIcon from "../assets/alarm-clock-icon.svg";
@@ -21,6 +22,7 @@ export {
   SearchIcon,
   BasketIcon,
   StrawberrySmallIcon,
+  Strawberry,
   Oranges,
   AddCartIcon,
   AlarmClockIcon,
