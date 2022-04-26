@@ -8,6 +8,7 @@ import AddCartIcon from "../assets/add-cart.svg";
 import AlarmClockIcon from "../assets/alarm-clock-icon.svg";
 import ArrAbstract from "../assets/arrow-abstract.svg";
 import DeliveryIcon from "../assets/delivery-icon.svg";
+import BikeIcon from "../assets/bike-icon.svg";
 import MoneyIcon from "../assets/cash-icon.svg";
 import CheckoutIcon from "../assets/checkout-icon.svg";
 import MobileMockup from '../assets/mobile-mockup.png'
@@ -28,6 +29,7 @@ export {
   AlarmClockIcon,
   ArrAbstract,
   DeliveryIcon,
+  BikeIcon,
   MoneyIcon,
   MobileMockup,
   CheckoutIcon,
