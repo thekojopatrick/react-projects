@@ -1,4 +1,8 @@
-import { Person2 } from "../../constants/images";
+import {
+  Person2,
+  StrawberrySmallIcon,
+  AddCartIcon,
+} from "../../constants/images";
 import { Button } from "../components";
 import "./why-choose-us.styles.scss";
 
@@ -6,6 +10,19 @@ const WhyChooseUs = () => {
   return (
     <section className="why-choose-us">
       <div className="col">
+        <div className="ad-product">
+          <img
+            src={StrawberrySmallIcon}
+            className="ad-product-img"
+            alt="oranges"
+          />
+          <p className="ad-product-name">Fresh Orange</p>
+          <p className="ad-product-price">$44.60</p>
+          <p className="ad-product-cost">Free Shipping</p>
+          <button className="ad-product-btn">
+            <img src={AddCartIcon} alt="add cart" />
+          </button>
+        </div>
         <img src={Person2} alt="person 2" />
       </div>
       <div className="col">
