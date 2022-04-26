@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import "./App.css";
+import "./App.scss";
 import Pages from "./pages/pages";
 
 export const AppContext = createContext();
