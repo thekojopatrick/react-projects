@@ -13,7 +13,7 @@ const Navbar = () => {
 				<img src={Logo} alt="Grover" />
 				<span>Grover</span>
 			</div>
-			<ul className="navbar-list">
+			<ul onMouseLeave={() => setOpenMenu(false)} className="navbar-list">
 				<li className="navbar-item">
 					<a href="/" className="navbar-link">
 						Home
