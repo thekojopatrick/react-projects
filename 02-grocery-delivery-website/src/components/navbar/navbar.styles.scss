@@ -15,9 +15,9 @@
 		color: #4d4d4d;
 		text-align: center;
 
-    &--search{
-      @apply block md:hidden;
-    }
+		&--search {
+			@apply block md:hidden;
+		}
 
 		&:active,
 		&:hover,
@@ -90,5 +90,5 @@
 }
 
 .mobile-nav {
-	@apply  fixed top-5 z-50 right-5 lg:hidden;
+	@apply fixed top-5 z-50 right-5 lg:hidden;
 }
