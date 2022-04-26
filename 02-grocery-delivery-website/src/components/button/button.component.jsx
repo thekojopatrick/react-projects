@@ -1,28 +1,23 @@
-import React from "react";
 import styled from "styled-components";
+import tw from "twin.macro";
 
 export const Button = ({ children, type, className }) => {
 	return (
 		<ButtonBox
-			className={className ? className : type === "btn-primary" ? `btn-primary` : type === "btn-secondary" && "btn-secondary"}
+			className={
+				className ? className : type === "btn-primary" ? `btn-primary` : type === "btn-secondary" && "btn-secondary"
+			}
 		>
 			{children}
 		</ButtonBox>
 	);
 };
 const ButtonBox = styled.button`
-	display: flex;
-	flex-direction: row;
-	gap: 0.5rem;
-	align-items: center;
-	font-weight: 500;
-	font-size: 20px;
-	line-height: 20px;
 	letter-spacing: -0.01em;
 	color: #363636;
-	text-align: center;
-	padding: 1.2rem 1.8rem;
-	border-radius: 12px;
+	${tw`flex items-center gap-0.5 font-medium px-7 
+	py-5 text-center rounded-lg text-base lg:text-lg`}
+
 	&:hover {
 		color: #f86061;
 
@@ -52,15 +47,11 @@ const ButtonBox = styled.button`
 	}
 
 	svg {
-		display: grid;
-		place-content: center;
 		width: 4.375rem;
 		height: 4.375rem;
-		border-radius: 50vh;
-		padding: 1.6rem;
 		fill: #f86061;
-		background: #ffffff;
-		box-shadow: 0px 20px 49px -10px rgba(0, 0, 0, 0.08);
+		${tw`grid bg-white shadow-2xl 
+		place-items-center rounded-full p-6`}
 	}
 
 	&.btn-secondary {
