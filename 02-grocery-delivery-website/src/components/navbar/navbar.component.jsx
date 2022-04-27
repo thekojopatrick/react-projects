@@ -3,7 +3,8 @@ import { Logo } from "../../constants/images";
 import { SearchField } from "../components";
 import { useContext } from "react";
 import { AppContext } from "../../App";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { navlinks } from "../../constants/data";
 
 const Navbar = () => {
 	const { openMenu, setOpenMenu } = useContext(AppContext);
@@ -19,36 +20,16 @@ const Navbar = () => {
 				<span>Grover</span>
 			</NavLink>
 			<ul onMouseLeave={handleMenuOpen} className="navbar-list">
-				<li className="navbar-item">
-					<NavLink onClick={handleMenuOpen} to="/" className="navbar-link">
-						Home
-					</NavLink>
-				</li>
-				<li className="navbar-item">
-					<NavLink onClick={handleMenuOpen} to="/shop" className="navbar-link">
-						Order Now
-					</NavLink>
-				</li>
-				<li className="navbar-item navbar-item--search">
-					<NavLink onClick={handleMenuOpen} to="/#search" className="navbar-link">
-						Search
-					</NavLink>
-				</li>
-				<li className="navbar-item">
-					<NavLink onClick={handleMenuOpen} to="/our-services" className="navbar-link">
-						Services
-					</NavLink>
-				</li>
-				<li className="navbar-item">
-					<NavLink onClick={handleMenuOpen} to="/about-us" className="navbar-link">
-						About Us
-					</NavLink>
-				</li>
-				<li className="navbar-item">
-					<Link onClick={handleMenuOpen} to="/#download-app" className="navbar-link">
-						Download App
-					</Link>
-				</li>
+				{navlinks.map((navlink) => {
+					const { id, name, route } = navlink;
+					return (
+						<li key={id} className={`navbar-item ${route === "/#search" ? "navbar-item--search" : ""}`}>
+							<NavLink onClick={handleMenuOpen} to={route} className="navbar-link">
+								{name}
+							</NavLink>
+						</li>
+					);
+				})}
 			</ul>
 			<SearchField />
 			<div className="mobile-nav">
