@@ -8,7 +8,7 @@ import { Button } from "../components";
 
 export const Cta = () => {
   return (
-		<section className="cta">
+		<section className="cta" id="download-app">
 			<div className="cta-content">
 				<div className="col">
 					<img src={MobileMockup} alt="mobile-mockup" />

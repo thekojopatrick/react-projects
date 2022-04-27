@@ -1,16 +1,14 @@
 import React from "react";
-import { Navbar, Header, OurServices, WhyChooseUs, Features, Cta as CTA, Footer } from "../../components/components";
+import { Header, OurServices, WhyChooseUs, Features, Cta as CTA,} from "../../components/components";
 
 const Home = () => {
 	return (
 		<>
-			<Navbar />
 			<Header />
 			<OurServices />
 			<WhyChooseUs />
 			<Features />
 			<CTA />
-			<Footer />
 		</>
 	);
 };
