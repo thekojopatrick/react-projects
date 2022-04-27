@@ -1,11 +1,14 @@
 .navbar {
-	@apply container mx-auto p-4 flex flex-row items-center justify-between w-full;
+	@apply container mx-auto p-4 flex
+	 flex-row items-center justify-between w-full;
 	&-logo {
 		@apply flex items-center gap-1 font-bold;
 	}
 
 	&-list {
-		@apply hidden -translate-x-full transition-transform delay-200 ease-in lg:transform-none lg:flex items-center justify-center gap-8 flex-1;
+		@apply hidden -translate-x-full transition-transform 
+		delay-200 ease-in lg:transform-none lg:flex 
+		items-center justify-center gap-8 flex-1;
 	}
 
 	&-item {
@@ -30,7 +33,9 @@
 
 	&__open {
 		.navbar-list {
-			@apply translate-x-0  flex lg:hidden  min-h-screen w-3/5 md:w-2/5 fixed top-0 left-0 bottom-0 z-50 bg-white drop-shadow-xl shadow-2xl  flex-col;
+			@apply translate-x-0 flex lg:hidden min-h-screen
+			 w-3/5 md:w-2/5 fixed top-0 left-0 bottom-0 z-50 
+			 bg-white drop-shadow-xl shadow-2xl flex-col;
 		}
 	}
 }
@@ -53,7 +58,7 @@
 		&,
 		&::after,
 		&::before {
-			width: 3rem;
+			width: 2rem;
 			height: 2px;
 			background-color: black;
 			display: inline-block;
@@ -68,10 +73,10 @@
 		}
 
 		&::before {
-			top: -0.8rem;
+			top: -0.7rem;
 		}
 		&::after {
-			top: 0.8rem;
+			top: 0.7rem;
 		}
 	}
 
@@ -90,5 +95,5 @@
 }
 
 .mobile-nav {
-	@apply  top-5 z-50 right-5 lg:hidden;
+	@apply top-5 z-50 right-5 lg:hidden;
 }
